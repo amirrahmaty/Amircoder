@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>امیر - توسعه‌دهنده ربات و ابزارهای عملیاتی</title>
+  <meta name="description" content="معرفی امیر، توسعه‌دهنده ربات‌های پیام‌رسان و ابزارهای هوشمند">
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: "IRANSans", Tahoma, sans-serif;
+      background: #0f1220;
+      color: #e6e9f5;
+      line-height: 1.6;
+    }
+    
+    a {
+      color: #00d4ff;
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Navigation */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      margin-bottom: 30px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .logo-dot {
+      width: 12px;
+      height: 12px;
+      background: #00d4ff;
+      border-radius: 50%;
+    }
+    
+    .tag {
+      background: #15192e;
+      padding: 8px 15px;
+      border-radius: 20px;
+      border: 1px solid #243053;
+      font-size: 0.9rem;
+      color: #a7b0d0;
+    }
+    
+    /* Hero section */
+    .hero {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero-image {
+      flex: 1;
+      background: linear-gradient(135deg, #7c5cff33, #00d4ff33);
+      border-radius: 15px;
+      height: 250px;
+      border: 1px solid #243053;
+    }
+    
+    /* Cards */
+    .card {
+      background: #15192e;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 25px;
+      border: 1px solid #243053;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card h2 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    
+    .highlight {
+      height: 3px;
+      background: linear-gradient(to right, #00d4ff, #7c5cff);
+      width: 60px;
+      margin: 10px 0 20px;
+      border-radius: 2px;
+    }
+    
+    /* Buttons */
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary {
+      background: #7c5cff;
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #e6e9f5;
+      border: 1px solid #243053;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    /* Skills grid */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .skill-item {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #243053;
+    }
+    
+    .skill-item h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    
+    /* Contact */
+    .contact-box {
+      background: rgba(124, 92, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border: 1px dashed #7c5cff;
+    }
+    
+    .id-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #101427;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 15px 0;
+      border: 1px solid #243053;
+    }
+    
+    .copy-btn {
+      background: #243053;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #a7b0d0;
+      border-top: 1px solid #243053;
+      margin-top: 40px;
+    }
+    
+    /* List styles */
+    .list {
+      margin: 15px 0;
+    }
+    
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+    
+    .list-dot {
+      width: 8px;
+      height: 8px;
+      background: #00d4ff;
+      border-radius: 50%;
+      margin: 8px 10px 0 0;
+      flex-shrink: 0;
+    }
+    
+    /* Tags */
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .tech-tag {
+      padding: 8px 15px;
+      background: rgba(124, 92, 255, 0.1);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid #7c5cff33;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <div class="logo-dot"></div>
+        <span>aMir coder</span>
+      </div>
+      <div class="tag">مشهد • توسعه‌دهنده ربات</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <div class="card">
+            <h1>توسعه‌دهنده ربات و ابزارهای عملیاتی</h1>
+            <div class="highlight"></div>
+            <p>توسعه ربات‌های پیام‌رسان، اتوماسیون هوشمند و ابزارهای عملیاتی با تمرکز بر سادگی و تجربه کاربری.</p>
+            <div class="buttons">
+              <button class="btn btn-primary" onclick="scrollToSection('contact')">همکاری کنید</button>
+              <button class="btn btn-secondary" onclick="scrollToSection('skills')">مهارت‌ها</button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image"></div>
+      </section>
+
+      <section id="about" class="card">
+        <h2>درباره من</h2>
+        <div class="highlight"></div>
+        <div class="list">
+          <div class="list-item">
+            <div class="list-dot"></div>
+            <p>توسعه ربات‌های پیام‌رسان با قابلیت‌های مدیریتی و تجربه کاربری حرفه‌ای</p>
+          </div>
+          <div class="list-item">
+            <div class="list-dot"></div>
+            <p>طراحی تبلیغات متنی و گرافیکی با تاکید بر زیبایی و تاثیرگذاری</p>
+          </div>
+          <div class="list-item">
+            <div class="list-dot"></div>
+            <p>پیاده‌سازی APIهای شبکه‌های اجتماعی و اتوماسیون تولید محتوا</p>
+          </div>
+        </div>
+        <div class="tag-container">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Telegram Bot</span>
+          <span class="tech-tag">Rubika</span>
+          <span class="tech-tag">API</span>
+        </div>
+      </section>
+
+      <section id="skills" class="card">
+        <h2>خدمات و تخصص‌ها</h2>
+        <div class="highlight"></div>
+        <div class="skills">
+          <div class="skill-item">
+            <h3>ربات مدیریت گروه</h3>
+            <p>ربات‌های هوشمند با امکانات مدیریتی پیشرفته، گزارش‌دهی و خودکارسازی</p>
+          </div>
+          <div class="skill-item">
+            <h3>ربات روبیکا</h3>
+            <p>توسعه ربات‌های اختصاصی برای پلتفرم روبیکا با قابلیت‌های متنوع</p>
+          </div>
+          <div class="skill-item">
+            <h3>اتوماسیون محتوا</h3>
+            <p>ساخت ابزارهای تولید خودکار محتوای متنی، تصویری و ویدیویی</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>ارتباط با من</h2>
+        <div class="highlight"></div>
+        <p>برای سفارش پروژه یا مشاوره از طریق راه‌های زیر با من در تماس باشید.</p>
+        
+        <div class="contact-box">
+          <p>رویکای من:</p>
+          <div class="id-box">
+            <span>@The_aMir_coder</span>
+            <button class="copy-btn" onclick="copyRubikaId()">کپی آیدی</button>
+          </div>
+        </div>
+        
+        <div class="buttons">
+          <a href="mailto:rahmaty5970@gmail.com" class="btn btn-primary">ارسال ایمیل</a>
+          <button class="btn btn-secondary" onclick="scrollToSection('about')">درباره بیشتر</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>ساخته شده با ❤ توسط امیر</p>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scrolling
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    
+    // Copy Rubika ID
+    function copyRubikaId() {
+      const id = '@The_aMir_coder';
+      navigator.clipboard.writeText(id).then(() => {
+        alert('آیدی روبیکا کپی شد: ' + id);
+      }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = id;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('آیدی کپی شد!');
+      });
+    }
+    
+    // Add some interactive effects
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.boxShadow = '0 5px 15px rgba(124, 92, 255, 0.3)';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.boxShadow = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
